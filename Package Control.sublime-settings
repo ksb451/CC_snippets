@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"C++ Snippets",
+		"C++11",
+		"CPP Competitive Programming Snippets",
+		"MarkdownEditing",
+		"MarkdownPreview",
+		"Package Control",
+		"SublimeLinter",
+		"SublimeLinter-cppcheck",
+		"SublimeLinter-cpplint",
+		"SublimeLinter-gcc"
+	]
+}

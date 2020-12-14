@@ -1,0 +1,76 @@
+<snippet>
+	<content><![CDATA[
+class DSU
+{
+    ll N;
+    ll total_components;
+    vector<ll> sz;
+    vector<ll> parent;
+
+public:
+    DSU(ll n)
+    {
+        no_of_elements = n;
+        total_components = n;
+        sz = vector<ll>(n, 1);
+        for (ll i = 0; i < n; i++)
+        {
+            parent.push_back(i);
+        }
+    }
+    ll find(ll x)
+    {
+        ll root = x;
+        while (parent[root] != root)
+        {
+            root = parent[root];
+        }
+        while (x != root)
+        {
+            ll next = parent[x];
+            parent[x] = root;
+            x = next;
+        }
+        return root;
+    }
+
+    ll component_size(int x)
+    {
+        return sz[find(x)];
+    }
+
+    ll size()
+    {
+        return N;
+    }
+
+    ll components()
+    {
+        return total_components;
+    }
+
+    void unify(ll p, ll q)
+    {
+        ll root1 = find(p);
+        ll root2 = find(q);
+        if (root1 == root2)
+            return;
+        if (sz[root1] < sz[root2])
+        {
+            sz[root2] += sz[root1];
+            parent[root1] = root2;
+        }
+        else
+        {
+            sz[root1] += sz[root2];
+            parent[root2] = root1;
+        }
+        total_components--;
+    }
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dsu</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
